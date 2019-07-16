@@ -3,6 +3,7 @@ var gulp = require('gulp');
 // var sass = require('gulp-sass');
 // var plumber = require('gulp-plumber')
 // var postcss = require('gulp-postcss');
+var connect = require('gulp-connect');
 var $ = require('gulp-load-plugins')(); // 只針對 gulp 開頭的套件才有用
 var autoprefixer = require('autoprefixer');
 
@@ -18,6 +19,7 @@ gulp.task('jade', function () {
       pretty: true
     }))
     .pipe(gulp.dest(path.public))
+    .pipe(connect.reload());
 });
 
 gulp.task('sass', function () {
@@ -32,7 +34,8 @@ gulp.task('sass', function () {
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.postcss(plugins))
-    .pipe(gulp.dest('./public.css'))
+    .pipe(gulp.dest('./public/css'))
+    .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
@@ -40,4 +43,12 @@ gulp.task('watch', function () {
   gulp.watch(path.source + 'stylesheets/**/*.scss', gulp.series('sass'));
 });
 
-gulp.task('default', gulp.series('jade', 'sass', 'watch'))
+gulp.task('server', function () {
+  connect.server({
+    root: path.public,
+    livereload: true
+  });
+});
+
+// gulp.task('default', gulp.series('jade', 'sass', 'watch', 'server'));
+gulp.task('default', gulp.series('jade', 'sass', gulp.parallel('server', 'watch')));
