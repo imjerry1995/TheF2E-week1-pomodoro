@@ -18,26 +18,29 @@ h3 {
 }
 
 *{
-  @include test-border;
+  // @include test-border;
   font-family:  'Roboto', sans-serif;
 }
 
 .container{
   @include full;
   display: flex;
+  overflow: hidden;
 }
 
 .container > div{
-  flex: 0 0 450px;
+  flex: 0 0 550px;
 } 
 
 .col-8.col-8 {
   flex-grow: 1;
   position: relative;
+  background-color: $color-primary-light;
 }
 
 .col-4.col-4 {
   flex-grow: 0;
+  background-color: $color-secondary;
 }
 
 .task{
@@ -56,16 +59,24 @@ h3 {
   input{
     padding: 16px;
     flex-grow: 1;
-  }
+    border: none;
 
-  input::placeholder{
-    @include fonts($color-primary, inital, bold, 0px);
-    font-style: italic;
+    &::placeholder {
+      @include fonts($color-primary, inital, bold, 0px);
+      font-style: italic;
+    }
+
+    &:focus{
+      border: none;
+      outline: none;
+    }
   }
 
   button{
     width: 40px;
     cursor: pointer;
+    border: none;
+    outline: none;
   }
 }
 
@@ -85,10 +96,6 @@ h3 {
     padding: 10px;
   }
 
-  h2{
-    padding: 0px 10px;
-  }
-
   a{
     margin-left: auto;
   }
@@ -97,10 +104,21 @@ h3 {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    border-bottom: 1px solid lighten($color: #000000, $amount: 0.2)
+    border-bottom: 1px solid $color-secondary-light;
   }
 
-  
+  & > li:nth-child(2) {
+    margin-top: 80px;
+  }
+
+  .btn-more {
+    border-bottom: none;
+    margin-top: 10px;
+  }
+}
+
+.btn{
+  cursor: pointer;
 }
 
 .check-circle {
@@ -139,6 +157,7 @@ h3 {
     @include square(12px);
     border: 1px solid $color-primary;
     border-radius: 50%;
+    margin-right: 5px;
   }
 
   .run{
@@ -150,22 +169,116 @@ h3 {
   @include fonts($color-primary,16px,bold,0px);
 }
 
+
+
 .number-box{
   display: none;
 }
 .number-box.active {
   display: flex;
-  @include fonts($color-primary, 150px, bold, 0px);
-  margin-left: 50px;
+  @include fonts($color-primary, 170px, bold, 0px);
 }
 /* list End*/
 
 /* count */
 .count-down{
-  @include square(540px);
+  @include square(500px);
   position: absolute;
   top: 15%;
-  left: 60%;
+  right: -252px;
+  border: 2px solid $color-primary;
+  border-radius: 50%;
+}
+
+.process-mask {
+  position: absolute;
+  top: 0%;
+  width: 250px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.process-mask.right{
+  right: 0;
+}
+
+.process-mask.left {
+  left: 0;
+}
+
+.process-bar {
+  @include square(476px);
+  border-radius: 50%;
+  border: 12px solid transparent;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.process-bar.right {
+  border-top:12px solid $color-primary;
+  border-right:12px solid $color-primary;
+  right: 0%;
+}
+
+.process-bar.left {
+  border-bottom: 12px solid $color-secondary;
+  border-left: 12px solid $color-secondary;
+  left: 0%;
+}
+
+.rightcircle{
+  animation: circle_right 5s linear ;
+}
+
+.leftcircle{
+  animation-delay: 5s;
+  animation: circle_left 5s linear  ;
+}
+@keyframes circle_right{
+  0%{
+    transform: rotate(-135deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes circle_left {
+  0% {
+    transform: rotate(-135deg);
+  }
+
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+.circle{
+  border-radius: 50%;
+  @include square(96%);
+  @include center;
+  background-color: $color-primary;
+
+  .btn{
+    @include center;
+    @include square(20%);
+  }
+}
+
+.btn-play-big{
+  i {
+    @include fonts($color-icon,100px,bold,0px);
+  }
+
+  &::after{
+    content: "";
+    display: inline-block;
+    @include square(14px);
+    background-color: $color-icon;
+    position: absolute;
+    left: 100%;
+    bottom: 0px;
+  }
 }
 /* count End */
 
@@ -178,14 +291,20 @@ h3 {
     padding: 48px 48px 0px 48px;
   }
 
-  
   i{
-
+    @include fonts($color-icon,30px,normal,0px);
   }
+
 }
 
 .logo {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  transform-origin: 49px 100%;
+  cursor: pointer;
+  margin-top: 80%;
+  h2{
+    color: $color-icon;
+  }
 }
 
 /* nav End*/

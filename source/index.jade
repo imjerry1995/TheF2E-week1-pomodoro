@@ -50,13 +50,16 @@ html(lang="en")
             .btn.btn-play-small
                 i.material-icons play_circle_outline
             .number-box 25:00
-          li 
+          li.btn-more 
             a.more(href="") MORE
 
       .count-down
-        .process-bar
+        .process-mask.right
+          .process-bar.right.rightcircle
+        .process-mask.left
+          .process-bar.left.leftcircle
         .circle
-          .btn
+          .btn.btn-play-big
             i.material-icons play_circle_filled_white
           
     .col-4
