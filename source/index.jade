@@ -4,5 +4,70 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title TheF2E-week1-pomodoro
+    title Document
+    link(rel="stylesheet", href="css/style.css")
   body
+  .container
+    .col-8
+      .task
+        .new-mission-box
+          input.mission-input(type="text" placeholder="ADD A NEW MISSION...")
+          button.mission-button
+            i.material-icons add
+
+        ul.list
+          li
+            .check-circle
+            .todo-box
+              h2 THE FIRST THING TO DO TODAY
+              ul.toma-list
+                li 
+                li.run
+            .btn.btn-play-small.first
+                i.material-icons play_circle_outline
+            .number-box.active 25:00
+          li
+            .check-circle.small
+            .todo-box
+              h3 THE SECOND THING TO DO TODAY
+              ul.toma-list
+            .btn.btn-play-small
+                i.material-icons play_circle_outline
+            .number-box 25:00
+          li
+            .check-circle.small
+            .todo-box
+              h3 THE SECOND THING TO DO TODAY
+              ul.toma-list
+            .btn.btn-play-small
+                i.material-icons play_circle_outline
+            .number-box 25:00
+          li
+            .check-circle.small
+            .todo-box
+              h3 THE SECOND THING TO DO TODAY
+              ul.toma-list
+            .btn.btn-play-small
+                i.material-icons play_circle_outline
+            .number-box 25:00
+          li 
+            a.more(href="") MORE
+
+      .count-down
+        .process-bar
+        .circle
+          .btn
+            i.material-icons play_circle_filled_white
+          
+    .col-4
+      .nav
+        ul
+          li
+            i.material-icons list
+          li
+            i.material-icons assessment
+          li
+            i.material-icons library_music
+          li.logo
+            a(href="")
+              h2 POMODORO

@@ -1,0 +1,191 @@
+@import 'variables';
+@import 'mixins/mixins';
+@import 'reboot';
+
+// @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+h1 {
+  @include fonts($color-primary,36px,bold,0px)
+}
+
+h2 {
+  @include fonts($color-secondary,24px,bold,0px)
+}
+
+h3 {
+  @include fonts($color-secondary, 16px, bold, 0px)
+}
+
+*{
+  @include test-border;
+  font-family:  'Roboto', sans-serif;
+}
+
+.container{
+  @include full;
+  display: flex;
+}
+
+.container > div{
+  flex: 0 0 450px;
+} 
+
+.col-8.col-8 {
+  flex-grow: 1;
+  position: relative;
+}
+
+.col-4.col-4 {
+  flex-grow: 0;
+}
+
+.task{
+  width: 450px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 48px 85px;
+}
+
+/* missin-box */
+.new-mission-box {
+  display: flex;
+  flex: 0 0 40px;
+  margin: 0 2.5px 100px 2.5px;
+
+  input{
+    padding: 16px;
+    flex-grow: 1;
+  }
+
+  input::placeholder{
+    @include fonts($color-primary, inital, bold, 0px);
+    font-style: italic;
+  }
+
+  button{
+    width: 40px;
+    cursor: pointer;
+  }
+}
+
+.mission-input{
+  background-color: $color-icon;
+}
+
+.mission-button{
+  @include fonts($color-primary, 16px, bold, 0px);
+  background-color: $color-icon;
+}
+/* missin-box End*/
+
+/* list */
+.list{
+  h2,h3{
+    padding: 10px;
+  }
+
+  h2{
+    padding: 0px 10px;
+  }
+
+  a{
+    margin-left: auto;
+  }
+
+  li{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-bottom: 1px solid lighten($color: #000000, $amount: 0.2)
+  }
+
+  
+}
+
+.check-circle {
+  display: flex;
+  border: 2px solid $color-secondary;
+  border-radius: 50%;
+  @include square(48px);
+}
+
+.check-circle.small {
+  @include square(16px);
+}
+
+.todo-box{
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 85%;
+}
+
+.btn.btn-play-small.first{
+  display: none;
+}
+.btn.btn-play-small {
+  display: flex;
+}
+
+.btn-play-small{
+  margin-left: auto;
+  color: $color-secondary;
+}
+
+.toma-list{
+  display: flex;
+  margin-left: 10px;
+  li{
+    @include square(12px);
+    border: 1px solid $color-primary;
+    border-radius: 50%;
+  }
+
+  .run{
+    background-color: $color-primary;
+  }
+}
+
+.more{
+  @include fonts($color-primary,16px,bold,0px);
+}
+
+.number-box{
+  display: none;
+}
+.number-box.active {
+  display: flex;
+  @include fonts($color-primary, 150px, bold, 0px);
+  margin-left: 50px;
+}
+/* list End*/
+
+/* count */
+.count-down{
+  @include square(540px);
+  position: absolute;
+  top: 15%;
+  left: 60%;
+}
+/* count End */
+
+/* nav */
+.nav{
+  display: flex;
+  justify-content: flex-end;
+
+  li{
+    padding: 48px 48px 0px 48px;
+  }
+
+  
+  i{
+
+  }
+}
+
+.logo {
+  transform: rotate(90deg)
+}
+
+/* nav End*/

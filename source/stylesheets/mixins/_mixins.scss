@@ -1,9 +1,14 @@
 //排版
 
+//排版邊框
+@mixin test-border {
+  border: 1px solid #222222 !important;
+}
+
 // 滿版
 @mixin full {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 // 寬滿版
@@ -41,6 +46,11 @@
   height: $h;
 }
 
+@mixin square($s) {
+  width: $s;
+  height: $s;
+}
+
 //文字
 @mixin fonts ($color, $size, $weight, $spacing) {
   color: $color;
@@ -48,3 +58,4 @@
   font-weight: $weight;
   letter-spacing: $spacing;
 }
+
