@@ -309,6 +309,9 @@ h3 {
 .list > li:nth-child(2) {
   margin-top: 80px; }
 
+.list .active {
+  border-bottom: none; }
+
 .list .btn-more {
   border-bottom: none;
   margin-top: 10px; }
@@ -417,13 +420,9 @@ h3 {
   position: absolute; }
 
 .process-bar.right {
-  border-top: 12px solid #FF4384;
-  border-right: 12px solid #FF4384;
   right: 0%; }
 
 .process-bar.left {
-  border-bottom: 12px solid #003164;
-  border-left: 12px solid #003164;
   left: 0%; }
 
 .rightcircle {
@@ -513,7 +512,8 @@ h3 {
       -ms-flex-pack: end;
           justify-content: flex-end; }
   .nav li {
-    padding: 48px 48px 0px 48px; }
+    padding: 48px 48px 0px 48px;
+    cursor: pointer; }
   .nav i {
     color: #ffffff;
     font-size: 30px;
