@@ -9,12 +9,16 @@ h1 {
   @include fonts($color-primary,36px,bold,0px)
 }
 
-h2 {
+h2{
   @include fonts($color-secondary,24px,bold,0px)
 }
 
 h3 {
   @include fonts($color-secondary, 16px, bold, 0px)
+}
+
+h3.big-title{
+  @include fonts($color-secondary, 24px, bold, 0px)
 }
 
 *{
@@ -124,6 +128,7 @@ h3 {
 .btn{
   cursor: pointer;
 }
+
 
 .check-circle {
   display: flex;

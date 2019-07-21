@@ -41,16 +41,24 @@ document.getElementById('add-list-btn').onclick = function () {
 function showList(initial){
 
   for (var i = initial; i < to_do_list.length; i++) {
+    
+
     var node_ul = document.querySelector('.list');
 
-    var node_li = document.createElement('li');
+    var node_li = document.createElement('li'); 
     var check_circle = createDOM('div', 'check-circle small');
     var todo_box = createDOM('div','todo-box');
-    todo_box.appendChild(createDOM('h3', '', to_do_list[i].content));
+    todo_box.appendChild(createDOM('h3', 'small-title', to_do_list[i].content));
     todo_box.appendChild(createDOM('ul', 'toma-list'));
     var btn = createDOM('div','btn btn-play-small');
     btn.appendChild(createDOM('i', 'material-icons', 'play_circle_outline'));
-    var number = createDOM('div', 'number-box', to_do_list[i].time);
+    var number = createDOM('div', 'number-box', to_do_list[i].time);//
+
+    // if(i==0){ //第一筆
+    //   node_li.setAttribute('class','active');
+    //   check_circle.setAttribute('class', 'check-circle');
+    //   btn.setAttribute('class', 'btn btn-play-small first');
+    // }
 
     node_li.appendChild(check_circle);
     node_li.appendChild(todo_box);
